@@ -36,7 +36,7 @@ const PostWidget = ({
 
   const patchLike = async () => {
     const response = await fetch(
-      `${process.env.BASE_URL}/posts/${postId}/like`,
+      `https://social-app-tjb6.onrender.com/posts/${postId}/like`,
       {
         method: "PATCH",
         headers: {

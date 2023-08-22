@@ -62,14 +62,11 @@ const Form = () => {
       formData.append(value, values[value]);
     }
     formData.append("picturePath", values.picture.name);
-
-    const savedUserResponse = await fetch(
-      `${process.env.BASE_URL}/auth/register`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+    const URL = "https://social-app-tjb6.onrender.com/auth/register";
+    const savedUserResponse = await fetch(URL, {
+      method: "POST",
+      body: formData,
+    });
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
 
@@ -79,7 +76,8 @@ const Form = () => {
   };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch(`${process.env.BASE_URL}/auth/login`, {
+    const URL = "https://social-app-tjb6.onrender.com/auth/login";
+    const loggedInResponse = await fetch(URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
